@@ -1,0 +1,13 @@
+﻿@model Inventory
+@{
+    ViewBag.Title = "Delete Inventory";
+
+}
+<h2>Confirm Deletion</h2>
+@*Select which inventory is to be deleted with the attribute Name*@
+<h3>@Model.Name (@Model.Description) </h3>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>

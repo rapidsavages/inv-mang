@@ -1,0 +1,35 @@
+﻿@model List<Inventory>
+@{
+    ViewBag.Title = "Inventory List";
+}
+
+<h2>Inventory List</h2>
+<a asp-controller="Inventory" asp-action="Add">Add New Inventory Set</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>In Stock</th>
+            <th>Needed Stock</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inv in Model)
+        {
+            <tr>
+                <td>@inv.Name</td>
+                <td>@inv.Description</td>
+                <td>@inv.InStock</td>
+                <td>@inv.NeedStock</td>
+                <td>
+                    <a asp-controller="Inventory" asp-action="Edit"
+                       asp-route-id="@inv.Id">Edit | </a>
+                    <a asp-controller="Inventory" asp-action="Delete"
+                       asp-route-id="@inv.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
